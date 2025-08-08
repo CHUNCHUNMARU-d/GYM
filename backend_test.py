@@ -84,8 +84,10 @@ class WorkoutTrackerTester:
         
         # Test POST /api/exercises - create new exercise
         try:
+            # Use a unique name to avoid duplicates
+            unique_name = f"Test Exercise {uuid.uuid4().hex[:8]}"
             new_exercise_data = {
-                "name": "Bulgarian Split Squats",
+                "name": unique_name,
                 "muscle_group": "Legs"
             }
             response = requests.post(
