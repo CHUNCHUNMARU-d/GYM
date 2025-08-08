@@ -105,95 +105,89 @@
 user_problem_statement: "Build a comprehensive Coach-Client Management System where: 1) Coach controls all user profiles and routines with username/password login, 2) Coach creates routines and assigns to clients, 3) Clients only see assigned routines with exercise tips and log Weight/Reps/RIR, 4) Coach tracks all client progress with body measurements comparison dashboard, 5) Only one coach manages all clients automatically"
 
 backend:
-  - task: "Health check endpoint"
+  - task: "Authentication system (Coach & Client login)"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Created /api/health endpoint for basic service verification"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: Health check endpoint working correctly. Returns status: healthy and proper message."
+        -comment: "Implemented JWT-based auth with coach username/password and client ID login. Coach default credentials: username=coach, password=coach123"
 
-  - task: "Exercise management (CRUD operations)"
+  - task: "Coach dashboard and client management"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Implemented GET /api/exercises, POST /api/exercises, and search functionality with pre-loaded exercise database"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: All exercise endpoints working. GET /api/exercises returns 11 pre-loaded exercises, POST creates new exercises with UUID, search functionality works correctly with regex matching. Duplicate prevention working as expected."
+        -comment: "Created comprehensive coach dashboard with client creation, progress tracking, and management endpoints"
 
-  - task: "Workout creation and logging"
+  - task: "Routine creation and assignment system"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Created POST /api/workouts endpoint to save workout sessions with multiple exercises and sets (weight, reps, RIR)"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: Workout creation working perfectly. Successfully created workout with 2 exercises, multiple sets per exercise, all data fields (weight_kg, reps, rir) properly stored. UUID-based IDs working correctly."
+        -comment: "Built routine management system where coach creates workouts with target sets/reps and assigns to specific clients"
 
-  - task: "Workout history retrieval"
+  - task: "Client workout logging with restrictions"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Implemented GET /api/workouts/{user_id} to retrieve workout history with pagination"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: Workout history retrieval working correctly. Successfully retrieved user's workout history, including the test workout created. Pagination parameter working."
+        -comment: "Client-only endpoints for accessing assigned routines and logging workout data (Weight/Reps/RIR)"
 
-  - task: "Workout statistics and progress tracking"
+  - task: "Body measurements and progress tracking"
     implemented: true
-    working: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Created GET /api/workouts/{user_id}/stats endpoint to calculate exercise averages, max weights, total volume, and session counts"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: Statistics calculation working perfectly. Returns comprehensive stats including total_workouts, exercise_stats with all required fields (total_sets, total_reps, total_volume_kg, max_weight_kg, avg_weight_kg, sessions). Calculations are accurate."
+        -comment: "Coach can log client body measurements (weight, body fat, muscle measurements) and view comprehensive progress analytics"
 
-  - task: "User management"
+  - task: "Progress comparison dashboard"
     implemented: true
-    working: true
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Multi-client comparison system showing workouts, volumes, measurements, and progress metrics across all clients"
+
+  - task: "Exercise tips management"
+    implemented: true
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Basic user creation and retrieval endpoints implemented"
-        -working: true
-        -agent: "testing"
-        -comment: "✅ TESTED: User management working correctly. POST /api/users creates users with UUID, GET /api/users/{user_id} retrieves user data properly. Fixed ObjectId serialization issue during testing."
+        -comment: "Coach can edit exercise form tips that clients see during workouts. Pre-loaded with professional form guidance"
 
 frontend:
   - task: "Exercise selection interface"
