@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Build a workout tracking app focused on exercise logging with up to 5 sets per exercise. Each set tracks Weight (Kg), Reps, and RIR (Reps in Reserve). Need progress tracking and averages over time."
+user_problem_statement: "Build a comprehensive Coach-Client Management System where: 1) Coach controls all user profiles and routines with username/password login, 2) Coach creates routines and assigns to clients, 3) Clients only see assigned routines with exercise tips and log Weight/Reps/RIR, 4) Coach tracks all client progress with body measurements comparison dashboard, 5) Only one coach manages all clients automatically"
 
 backend:
   - task: "Health check endpoint"
