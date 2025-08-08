@@ -190,7 +190,7 @@ backend:
         -comment: "Coach can edit exercise form tips that clients see during workouts. Pre-loaded with professional form guidance"
 
 frontend:
-  - task: "Exercise selection interface"
+  - task: "Coach authentication interface"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/App.js"
@@ -200,9 +200,9 @@ frontend:
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Created scrollable exercise list with muscle group categorization"
+        -comment: "Created login system with coach/client selection, username/password for coach, client ID for clients"
 
-  - task: "Set logging with Weight/Reps/RIR inputs"
+  - task: "Coach dashboard with multi-view navigation"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/App.js"
@@ -212,9 +212,9 @@ frontend:
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Implemented SetInputForm component with number inputs for weight (kg), reps, and RIR. Supports up to 5 sets per exercise"
+        -comment: "Comprehensive coach dashboard with tabs for Dashboard, Clients, Routines, and Progress comparison"
 
-  - task: "Current workout management"
+  - task: "Client management system"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/App.js"
@@ -224,9 +224,9 @@ frontend:
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Created workout session interface where users can add exercises, manage sets, and save complete workouts"
+        -comment: "Coach can add clients, view individual progress, log body measurements with detailed tracking"
 
-  - task: "Workout history display"
+  - task: "Routine creation and assignment interface"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/App.js"
@@ -236,9 +236,9 @@ frontend:
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "History view showing past workouts with date, exercises, and set details in organized cards"
+        -comment: "Coach can create workout routines, add exercises with targets, and assign to specific clients"
 
-  - task: "Progress statistics dashboard"
+  - task: "Client workout interface with restrictions"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/App.js"
@@ -248,19 +248,31 @@ frontend:
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Stats view with total workouts, exercises tracked, total sets, and per-exercise progress metrics"
+        -comment: "Client sees only assigned routine with exercise tips, can log Weight/Reps/RIR, limited access to history only"
 
-  - task: "Mobile responsive design"
+  - task: "Progress comparison dashboard"
     implemented: true
     working: "NA"
-    file: "/app/frontend/src/App.css"
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Coach can compare all clients' progress with measurements, workout volumes, and body composition metrics"
+
+  - task: "Body measurements logging interface"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/App.js"
     stuck_count: 0
     priority: "medium"
     needs_retesting: false
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Applied mobile-first responsive design with proper breakpoints and touch-friendly interfaces"
+        -comment: "Coach interface for logging client weight, body fat %, and muscle group measurements (chest, waist, arms, etc.)"
 
 metadata:
   created_by: "main_agent"
