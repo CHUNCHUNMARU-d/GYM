@@ -79,6 +79,7 @@ async def create_user(name: str, email: str = ""):
         "created_at": datetime.now(timezone.utc)
     }
     users_collection.insert_one(user)
+    user.pop("_id", None)  # Remove MongoDB ObjectId before returning
     return user
 
 @app.get("/api/users/{user_id}")
